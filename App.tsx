@@ -1,26 +1,20 @@
-import 'react-native-gesture-handler';
-import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-} from 'react-native';
+import React from 'react';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import Navigator from './src/navigator/Navigator';
 
 const App = () => {
-  return(
-    <SafeAreaView>
+  return (
+    // <SafeArea
+    <SafeAreaView style={styles.container}>
       <Navigator />
     </SafeAreaView>
   );
-}
+};
 
-// const styles = StyleSheet.create({
-//   container: {
-//     // backgroundColor: 'black',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;

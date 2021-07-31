@@ -1,8 +1,19 @@
 import React from 'react';
-import { Text } from 'react-native';
+import {Text, View, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/core';
+import {IconHome} from '../../assets/icons/tabs/IconHome';
 
-export const HomeScreen = () => {
-  return(
-    <Text>Home Screen</Text>
+const HomeScreen = () => {
+  const navigation = useNavigation();
+  return (
+    <View>
+      <Text>HomeScreen</Text>
+      <IconHome sizeX={133} sizeY={133} color={'red'} />
+      <Button title="Button" onPress={() => navigation.navigate('SETTINGS')}>
+        "push"
+      </Button>
+    </View>
   );
 };
+
+export default HomeScreen;

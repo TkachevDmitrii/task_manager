@@ -3,10 +3,13 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {screens} from '../consts/screens';
 import Navigation from '../../base/Navigation';
-import {HomeScreen} from '../../screens/home/HomeScreen';
-import {SettingsScreen} from '../../screens/settings/SettingsScreen';
-// import {IconHome} from '../../assets/icons/tabs/IconHome';
-// import {IconSettings} from "../../assets/icons/tabs/IconSettings";
+import HomeScreen from '../../screens/home/HomeScreen';
+import {CalendarScreen} from '../../screens/home/CalendarScreen';
+import {SettingsScreen} from '../../screens/home/SettingsScreen';
+
+import {IconHome} from '../../assets/icons/tabs/IconHome';
+import {IconSettings} from '../../assets/icons/tabs/IconSettings';
+import {IconCalendar} from '../../assets/icons/tabs/IconCalendar';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,22 +29,33 @@ export const Tabs = () => {
       <Tab.Screen
         name={screens.HOME}
         component={HomeScreen}
-        options={({route}: any) => ({
+        options={() => ({
           tabBarLabel: 'Главная',
-          // tabBarIcon: ({focused}) => (
-          //   <IconHome color={focused ? 'red' : 'gray'} />
-          // ),
+          tabBarIcon: ({focused}) => (
+            <IconHome color={focused ? 'red' : 'gray'} />
+          ),
+        })}
+      />
+
+      <Tab.Screen
+        name={screens.CALENDAR}
+        component={CalendarScreen}
+        options={() => ({
+          tabBarLabel: 'Календарь',
+          tabBarIcon: ({focused}) => (
+            <IconCalendar color={focused ? 'red' : 'gray'} />
+          ),
         })}
       />
 
       <Tab.Screen
         name={screens.SETTINGS}
         component={SettingsScreen}
-        options={({route}: any) => ({
+        options={() => ({
           tabBarLabel: 'Настройки',
-          // tabBarIcon: ({focused}) => (
-          //   <IconBasket color={focused ? 'red' : 'gray'} />
-          // ),
+          tabBarIcon: ({focused}) => (
+            <IconSettings color={focused ? 'red' : 'gray'} />
+          ),
         })}
       />
     </Tab.Navigator>
