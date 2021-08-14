@@ -24,40 +24,45 @@ const Tab = createBottomTabNavigator();
 //   return hideOnScreens.indexOf(routeName) === -1;
 // };
 
+enum TypeIcon {
+  Home = 'home',
+  Calendar = 'calendar',
+  Settings = 'settings',
+}
+
 export const Tabs = () => {
+  const { HOME, CALENDAR, SETTINGS } = screens
+
+  const handleOptions = (labelName: string, type: TypeIcon) => {
+
+    return {
+      tabBarLabel: labelName,
+      tabBarIcon: (props:{focused: boolean}) => (
+        type === TypeIcon.Home && <IconHome color={props.focused ? 'red' : 'gray'} /> ||
+        type === TypeIcon.Calendar && <IconCalendar color={props.focused ? 'red' : 'gray'} /> ||
+        type === TypeIcon.Settings && <IconSettings color={props.focused ? 'red' : 'gray'} />
+      )
+    }
+  }
+
   return (
     <Tab.Navigator initialRouteName={Navigation.initialRoute}>
       <Tab.Screen
-        name={screens.HOME}
+        name={HOME}
         component={HomeScreen}
-        options={() => ({
-          tabBarLabel: 'Главная',
-          tabBarIcon: ({focused}) => (
-            <IconHome color={focused ? 'red' : 'gray'} />
-          ),
-        })}
+        options={handleOptions('Главная', TypeIcon.Home)}
       />
 
       <Tab.Screen
-        name={screens.CALENDAR}
+        name={CALENDAR}
         component={CalendarScreen}
-        options={() => ({
-          tabBarLabel: 'Календарь',
-          tabBarIcon: ({focused}) => (
-            <IconCalendar color={focused ? 'red' : 'gray'} />
-          ),
-        })}
+        options={handleOptions('Календарь', TypeIcon.Calendar)}
       />
 
       <Tab.Screen
-        name={screens.SETTINGS}
+        name={SETTINGS}
         component={SettingsScreen}
-        options={() => ({
-          tabBarLabel: 'Настройки',
-          tabBarIcon: ({focused}) => (
-            <IconSettings color={focused ? 'red' : 'gray'} />
-          ),
-        })}
+        options={handleOptions('Настройки', TypeIcon.Settings)}
       />
     </Tab.Navigator>
   );
