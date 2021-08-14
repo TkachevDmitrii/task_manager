@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, FlatList, Text, StyleSheet} from 'react-native';
+import { View, FlatList, Text, StyleSheet } from 'react-native';
+import List from '../../components/list';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,6 +8,8 @@ const styles = StyleSheet.create({
     paddingTop: 22,
   },
   item: {
+    borderBottomWidth: 1,
+    borderColor: 'black',
     padding: 10,
     fontSize: 18,
     height: 44,
@@ -14,30 +17,8 @@ const styles = StyleSheet.create({
 });
 
 export const SettingsScreen = () => {
+ 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-          {key: 'Julie'},
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-      />
-    </View>
+    <List />
   );
 };

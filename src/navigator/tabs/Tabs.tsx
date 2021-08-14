@@ -10,16 +10,17 @@ import {SettingsScreen} from '../../screens/home/SettingsScreen';
 import {IconHome} from '../../assets/icons/tabs/IconHome';
 import {IconSettings} from '../../assets/icons/tabs/IconSettings';
 import {IconCalendar} from '../../assets/icons/tabs/IconCalendar';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();
 
 // const getTabBarVisible = (route: any) => {
 //   const routeName = getFocusedRouteNameFromRoute(route);
-//
+
 //   if (!routeName) {
 //     return true;
 //   }
-//
+
 //   return hideOnScreens.indexOf(routeName) === -1;
 // };
 

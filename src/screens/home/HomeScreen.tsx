@@ -9,7 +9,7 @@ const HomeScreen = () => {
     <View>
       <Text>HomeScreen</Text>
       <IconHome sizeX={133} sizeY={133} color={'red'} />
-      <Button title="Button" onPress={() => navigation.navigate('SETTINGS')}>
+      <Button title="Button" onPress={() => navigation.navigate('ACCOUNT')}>
         "push"
       </Button>
     </View>

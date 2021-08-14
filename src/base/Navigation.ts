@@ -16,7 +16,6 @@ class NavigationC {
   };
 
   navigate = (routeName: string, params?: NavigationParams) => {
-    // https://github.com/react-navigation/react-navigation/issues/6879
     setTimeout(
       () => this.navigationRef.current?.navigate(routeName, params),
       0,
@@ -24,7 +23,6 @@ class NavigationC {
   };
 
   replace = (routeName: string, params?: NavigationParams) => {
-    // https://github.com/react-navigation/react-navigation/issues/6879
     setTimeout(
       () =>
         this.navigationRef.current?.reset({
