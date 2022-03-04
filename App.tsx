@@ -1,20 +1,19 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import styled from 'styled-components/native';
 import Navigator from './src/navigator/Navigator';
+
+const StyledSafeAreaView = styled(SafeAreaView)`
+  flex: 1;
+`
 
 const App = () => {
   return (
     // <SafeArea
-    <SafeAreaView style={styles.container}>
+    <StyledSafeAreaView>
       <Navigator />
-    </SafeAreaView>
+    </StyledSafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
